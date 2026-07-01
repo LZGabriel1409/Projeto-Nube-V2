@@ -1,0 +1,414 @@
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores do design */
+    --soft-red: hsl(7, 99%, 70%);
+    --yellow: hsl(51, 100%, 49%);
+    --dark-desaturated-cyan-graphic-design: hsl(167, 40%, 24%);
+    --dark-blue-photography: hsl(198, 62%, 26%);
+    --dark-moderate-cyan-footer: hsl(168, 34%, 41%);
+    --very-dark-desaturated-blue-text: hsl(212, 27%, 19%);
+    --very-dark-grayish-blue-text: hsl(213, 9%, 39%);
+    --dark-grayish-blue-text: hsl(232, 10%, 55%);
+    --grayish-blue-testimonials: hsl(210, 4%, 67%);
+    --white: hsl(0, 0%, 100%);
+    --light-grayish-blue-testimonials-bg: hsl(200, 10%, 96%);
+}
+
+body {
+    font-family: 'Barlow', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-grayish-blue-text);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header - Hero Section */
+.hero {
+    background-image: url('images/desktop/image-header.jpg');
+    background-size: cover;
+    background-position: center 90%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem;
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    max-height: 900px;
+    overflow: hidden;
+}
+
+.navbar {
+    position: absolute;
+    top: 2rem;
+    left: 60%;
+    transform: translateX(-60%);
+    width: 100%;
+    max-width: 1300px;
+    padding: 0.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Ajuste para a Logo */
+.navbar .logo {
+    width: 130px;
+    height: auto;
+}
+
+/* Ajuste para os links de navegação (About, Services, Projects) */
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Barlow', sans-serif;
+}
+
+.nav-links a {
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Ajuste para o botão Contact */
+.contact-btn {
+    background-color: var(--white);
+    color: var(--very-dark-desaturated-blue-text);
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    outline: 2px solid var(--white);
+}
+
+/* Ajuste para o título "WE ARE CREATIVES" */
+.hero-title {
+    font-family: 'Fraunces', serif;
+    font-size: 2.5rem; 
+    letter-spacing: 0.35rem; 
+    text-transform: uppercase;
+    margin-top: 15vh;
+    margin-bottom: 2rem;
+    z-index: 2;
+}
+
+/* Ajuste para a seta */
+.arrow-down {
+    width: 25px;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    bottom: 45%; 
+    left: 49%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    z-index: 2;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(10px);
+    }
+    60% {
+        transform: translateY(5px);
+    }
+}
+
+/* Sections - Grid Layout */
+.section-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 12%;
+    text-align: left;
+    background-color: var(--white);
+}
+
+.text-content h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--very-dark-desaturated-blue-text);
+    font-weight: 900;
+}
+
+.text-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: var(--very-dark-grayish-blue-text);
+}
+
+.learn-more {
+    font-family: 'Fraunces', serif;
+    color: var(--very-dark-desaturated-blue-text);
+    font-weight: 900;
+    position: relative;
+    padding-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.learn-more::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 10px);
+    height: 6px;
+    border-radius: 5px;
+    z-index: -1;
+    transition: all 0.3s ease;
+    opacity: 0.25;
+}
+
+.learn-more.yellow-underline::after {
+    background-color: var(--yellow);
+}
+
+.learn-more.red-underline::after {
+    background-color: var(--soft-red);
+}
+
+.learn-more:hover::after {
+    opacity: 1;
+}
+
+/* Imagens das seções com fundo e objeto juntos */
+.image-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image-content .section-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image-text-overlap {
+    min-height: 550px;
+}
+
+.image-text-overlap .image-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+.graphic-design-cherries {
+    background-image: url('images/desktop/image-graphic-design.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+}
+
+.photography-orange {
+    background-image: url('images/desktop/image-photography.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.image-text-overlap .overlap-text {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    padding-bottom: 2rem;
+}
+
+.graphic-design-cherries .overlap-text {
+    color: var(--dark-desaturated-cyan-graphic-design);
+}
+
+.photography-orange .overlap-text {
+    color: var(--dark-blue-photography);
+}
+
+.image-text-overlap .overlap-text h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    font-weight: 900;
+}
+
+.image-text-overlap .overlap-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 5rem 10%;
+    text-align: center;
+    background-color: var(--light-grayish-blue-testimonials-bg);
+}
+
+.testimonials h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    color: var(--grayish-blue-testimonials);
+    margin-bottom: 4rem;
+}
+
+.testimonial-cards {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.testimonial-cards .card {
+    flex-basis: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card .client-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+}
+
+.card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: var(--very-dark-grayish-blue-text);
+}
+
+.card .client-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    color: var(--very-dark-desaturated-blue-text);
+    margin-bottom: 0.6rem;
+}
+
+.card .client-title {
+    font-size: 0.8rem;
+    color: var(--grayish-blue-testimonials);
+}
+
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.gallery-item {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 70vh;
+}
+
+.milk-bottles-bg {
+    background-image: url('images/desktop/image-gallery-milkbottles.jpg');
+}
+.orange-plate-bg {
+    background-image: url('images/desktop/image-gallery-orange.jpg');
+}
+.ice-cream-cone-bg {
+    background-image: url('images/desktop/image-gallery-cone.jpg');
+}
+.sugar-cubes-bg {
+    background-image: url('images/desktop/image-gallery-sugarcubes.jpg');
+}
+
+/* Footer */
+.footer {
+    background-color: var(--dark-moderate-cyan-footer);
+    padding: 3.5rem 0;
+    text-align: center;
+}
+
+.footer .footer-logo {
+    height: 25px;
+    margin-bottom: 2rem;
+    filter: brightness(0) saturate(100%) invert(38%) sepia(21%) saturate(1989%) hue-rotate(119deg) brightness(85%) contrast(89%);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: 'Barlow', sans-serif;
+    color: #458c7e;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.social-icons img {
+    height: 18px;
+    filter: brightness(0) saturate(100%) invert(38%) sepia(21%) saturate(1989%) hue-rotate(119deg) brightness(85%) contrast(89%);
+    transition: filter 0.3s ease;
+}
+
+.social-icons img:hover {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
